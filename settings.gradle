@@ -1,2 +1,4 @@
 rootProject.name = 'learn-game-server'
+include 'server'
+include 'client'
 
