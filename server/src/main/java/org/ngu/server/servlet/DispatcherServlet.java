@@ -34,7 +34,11 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("application/json");
+        response.setContentType("application/json; charset=UTF-8");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+
 
         String req = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         JsonProtocol protocol = gson.fromJson(req, JsonProtocol.class);
